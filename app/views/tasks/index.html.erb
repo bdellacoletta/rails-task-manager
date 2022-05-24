@@ -1,0 +1,18 @@
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed %>
+        <%# <%= link_to task_path(task, task: { completed: false }), remote: true, method: :patch do %>
+        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+        <%# <% end %>
+      <% else %>
+        <%# <%= link_to task_path(task, task: { completed: true }), remote: true, method: :patch do %>
+        <i class="fa fa-square-o" aria-hidden="true"></i>
+        <%# <% end %>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+    </li>
+  <% end %>
+</ul>
+<i><%= link_to "Create a new task", new_task_path(@task) %></i>
